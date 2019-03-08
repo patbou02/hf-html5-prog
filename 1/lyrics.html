@@ -8,6 +8,30 @@
 <body>
   <h1>Song Lyrics</h1>
   <script>
+    "use strict";
+
+    // variables
+    let drink = "Energy Drink";
+    let lyrics = "";
+    let cans = 10;
+
+    // build lyrics
+    while (cans > 0) {
+      lyrics += `${cans} cans of ${drink} on the wall.`;
+      lyrics += '<br />';
+      lyrics += `${cans} cans of ${drink}.`;
+      lyrics += '<br /><br />';
+      lyrics += `Take one down, pass it around,`;
+      lyrics += '<br /><br />';
+
+      if (cans === 1) {
+        lyrics += `No more cans of ${drink} on the wall.`;
+        lyrics += '<br />';
+      }
+      cans--;
+    }
+
+    document.write(lyrics);
 
   </script>
 </body>
