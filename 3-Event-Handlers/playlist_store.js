@@ -1,6 +1,6 @@
 "use strict";
 
-console.info("=== Chapter 3: Webville Tunes (READY BAKE CODE) ===");
+console.info("=== Chapter 3-Event-Handlers: Webville Tunes (READY BAKE CODE) ===");
 
 function save(item) {
   let playlistArray = getStoreArray("playlist");

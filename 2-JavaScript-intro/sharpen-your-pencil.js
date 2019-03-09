@@ -1,6 +1,6 @@
 "use strict";
 
-console.info("=== Chapter 2: Sharpen Your Pencils ===");
+console.info("=== Chapter 2-JavaScript-intro: Sharpen Your Pencils ===");
 
 function addSongs() {
   let song1 = document.getElementById('song1');
