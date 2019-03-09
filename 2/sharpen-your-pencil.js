@@ -1,16 +1,15 @@
 "use strict";
 
-console.info("=== Chap2ter : Sharpen Your Pencils ===");
+console.info("=== Chapter 2: Sharpen Your Pencils ===");
 
-function handleButtonClick() {
-  let textInput = document.getElementById("songTextInput");
-  let songName = textInput.value;
-  console.log(`Adding ${songName}.`);
+function addSongs() {
+  let song1 = document.getElementById('song1');
+  let song2 = document.getElementById('song2');
+  let song3 = document.getElementById('song3');
+
+  song1.innerHTML = "Blue Suede Strings, by Elvis Presley";
+  song2.innerHTML = "Great Objects on Fire, by Jerry JSON Lewis";
+  song3.innerHTML = "I Code the Line, by Johnny JavaScript";
 }
 
-// Bonus
-function handleButtonClickBonus() {
-  let textInput = document.getElementById("songTextInput");
-  let songName = textInput.value;
-  (songName === "") ? console.log("Please enter a song.") : console.log(`Adding ${songName}.`);
-}
+window.onload = addSongs();
