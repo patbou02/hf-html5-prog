@@ -7,6 +7,7 @@ window.onload = init;
 function init() {
   let button = document.getElementById('addButton');
   button.onclick = handleButtonClick;
+  loadPlaylist();
 }
 
 function handleButtonClick() {
