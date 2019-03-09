@@ -16,6 +16,10 @@ function makePhrases() {
   // Put together randomly generated words
   let phrase = `${words1[rand1]} ${words2[rand2]} ${words3[rand3]}`;
 
+  // output phrase
+  let phraseElement = document.getElementById("phrase");
+  phraseElement.innerHTML = phrase;
+
 }
 
 window.onload = makePhrases;
