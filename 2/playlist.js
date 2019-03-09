@@ -15,6 +15,7 @@ function handleButtonClick() {
   let songName = textInput.value;
 
   addSong(songName);
+  save(songName);
 }
 
 function addSong(song) {
