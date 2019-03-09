@@ -12,5 +12,10 @@ function init() {
 function handleButtonClick() {
   let textInput = document.getElementById("songTextInput");
   let songName = textInput.value;
-  console.log(`Adding ${songName}.`);
+
+  let li = document.createElement("li");
+  li.innerHTML = songName;
+
+  let ul = document.getElementById("playlist");
+  ul.appendChild(li);
 }
