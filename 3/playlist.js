@@ -1,6 +1,6 @@
 "use strict";
 
-console.info("=== Chapter 2: Webville Tunes ===");
+console.info("=== Chapter 3: Webville Tunes ===");
 
 window.onload = init;
 
@@ -15,6 +15,7 @@ function handleButtonClick() {
   let songName = textInput.value;
 
   addSong(songName);
+  save(songName);
 }
 
 function addSong(song) {

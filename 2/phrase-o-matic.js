@@ -1,6 +1,6 @@
 "use strict";
 
-console.info("=== Chapter 1: Phrase-O-Matic ===");
+console.info("=== Chapter 2: Phrase-O-Matic ===");
 
 function makePhrases() {
   // Set Arrays with words in side of them
