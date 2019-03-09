@@ -10,5 +10,7 @@ function init() {
 }
 
 function handleButtonClick() {
-  console.log('button was clicked');
+  let textInput = document.getElementById("songTextInput");
+  let songName = textInput.value;
+  console.log(`Adding ${songName}.`);
 }
