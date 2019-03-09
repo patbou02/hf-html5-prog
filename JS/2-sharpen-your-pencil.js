@@ -12,5 +12,5 @@ function handleButtonClick() {
 function handleButtonClick() {
   let textInput = document.getElementById("songTextInput");
   let songName = textInput.value;
-  (songName !== "") ? console.log(`Adding ${songName}.`) : console.log("Nothing was typed");
+  (songName === "") ? console.log("Please enter a song.") : console.log(`Adding ${songName}.`);
 }
