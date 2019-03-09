@@ -1,6 +1,6 @@
 "use strict";
 
-console.info("=== Chapter 3: Sharpen Your Pencils ===");
+console.info("=== Chapter 3-Event-Handlers: Sharpen Your Pencils ===");
 
 function handleButtonClick() {
   let textInput = document.getElementById("songTextInput");

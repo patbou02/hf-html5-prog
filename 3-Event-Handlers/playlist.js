@@ -1,6 +1,6 @@
 "use strict";
 
-console.info("=== Chapter 3: Webville Tunes ===");
+console.info("=== Chapter 3-Event-Handlers: Webville Tunes ===");
 
 window.onload = init;
 
