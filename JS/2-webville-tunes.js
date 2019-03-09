@@ -13,9 +13,12 @@ function handleButtonClick() {
   let textInput = document.getElementById("songTextInput");
   let songName = textInput.value;
 
-  let li = document.createElement("li");
-  li.innerHTML = songName;
+  addSong(songName);
+}
 
+function addSong(song) {
   let ul = document.getElementById("playlist");
+  let li = document.createElement("li");
+  li.innerHTML = song;
   ul.appendChild(li);
 }
