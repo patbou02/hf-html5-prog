@@ -7,21 +7,20 @@ let lordOfTheRings = {
   genre: "Fantasy",
   rating: 4,
   showtimes: ["3:00pm", "5:00pm", "7:00pm", "11:59pm"],
-};
+  getNextShowing: function() {
+    let now = new Date().getTime();
 
-function getNextShowing(movie) {
-  let now = new Date().getTime();
-
-  for (let i = 0; i < movie.showtimes.length; i++) {
-    let showtime = getTimeFromString(movie.showtimes[i]);
-    console.log('showtime: ', showtime);
-    console.log('now: ', now);
-    if ((showtime - now) > 0) {
-      return `Next showing of ${movie.title} is at ${movie.showtimes[i]}.`;
+    for (let i = 0; i < this.showtimes.length; i++) {
+      let showtime = getTimeFromString(this.showtimes[i]);
+      console.log('showtime: ', showtime);
+      console.log('now: ', now);
+      if ((showtime - now) > 0) {
+        return `Next showing of ${this.title} is at ${this.showtimes[i]}.`;
+      }
+      return null;
     }
-    return "no options";
-  }
-}
+  },
+};
 
 function getTimeFromString(timeString) {
   let theTime = new Date();
@@ -31,5 +30,5 @@ function getTimeFromString(timeString) {
   return theTime.getTime();
 }
 
-let nextShowing = getNextShowing(lordOfTheRings);
+let nextShowing = lordOfTheRings.getNextShowing();
 console.log(nextShowing);
