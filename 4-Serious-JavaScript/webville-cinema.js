@@ -22,45 +22,10 @@ function Movie(title, genre, rating, showtimes) {
   };
 }
 
-let lordOfTheRings = {
-  title: "Lord of the Rings",
-  genre: "Fantasy",
-  rating: 4,
-  showtimes: ["3:00pm", "5:00pm", "7:00pm", "11:59pm"],
-  getNextShowing: function() {
-    let now = new Date().getTime();
+// Instantiate Objects using Movie constructor
+let LORDOFTHERINGS = new Movie("Lord of the Rings", "Fantasy", 4, ["3:00pm", "5:00pm", "7:00pm", "11:59pm"]);
 
-    for (let i = 0; i < this.showtimes.length; i++) {
-      let showtime = getTimeFromString(this.showtimes[i]);
-      console.log('showtime: ', showtime);
-      console.log('now: ', now);
-      if ((showtime - now) > 0) {
-        return `Next showing of ${this.title} is at ${this.showtimes[i]}.`;
-      }
-      return null;
-    }
-  },
-};
-
-let theMatrix = {
-  title: "The Matrix",
-  genre: "Science Fiction",
-  rating: 5,
-  showtimes: ["1:00pm", "3:45pm", "6:10pm", "9:05pm"],
-  getNextShowing: function() {
-    let now = new Date().getTime();
-
-    for (let i = 0; i < this.showtimes.length; i++) {
-      let showtime = getTimeFromString(this.showtimes[i]);
-      console.log('showtime: ', showtime);
-      console.log('now: ', now);
-      if ((showtime - now) > 0) {
-        return `Next showing of ${this.title} is at ${this.showtimes[i]}.`;
-      }
-      return null;
-    }
-  },
-};
+let THEMATRIX = new Movie("The Matrix", "Science Fiction", 5, ["1:00pm", "3:45pm", "6:10pm", "9:05pm"]);
 
 function getTimeFromString(timeString) {
   let theTime = new Date();
@@ -70,7 +35,7 @@ function getTimeFromString(timeString) {
   return theTime.getTime();
 }
 
-let nextShowing = lordOfTheRings.getNextShowing();
+let nextShowing = LORDOFTHERINGS.getNextShowing();
 console.log('Lord of the Rings: ' + nextShowing);
-nextShowing = theMatrix.getNextShowing();
+nextShowing = THEMATRIX.getNextShowing();
 console.log('The Matrix: ' + nextShowing);
