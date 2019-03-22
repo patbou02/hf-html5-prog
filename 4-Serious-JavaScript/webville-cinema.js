@@ -22,11 +22,6 @@ function Movie(title, genre, rating, showtimes) {
   };
 }
 
-// Instantiate Objects using Movie constructor
-let LORDOFTHERINGS = new Movie("Lord of the Rings", "Fantasy", 4, ["3:00pm", "5:00pm", "7:00pm", "11:59pm"]);
-
-let THEMATRIX = new Movie("The Matrix", "Science Fiction", 5, ["1:00pm", "3:45pm", "6:10pm", "9:05pm"]);
-
 function getTimeFromString(timeString) {
   let theTime = new Date();
   let time = timeString.match(/(\d+)(?::(\d\d))?\s*(p?)/);
@@ -34,6 +29,10 @@ function getTimeFromString(timeString) {
   theTime.setMinutes(parseInt(time[2]) || 0);
   return theTime.getTime();
 }
+
+// Instantiate Objects using Movie constructor
+let LORDOFTHERINGS = new Movie("Lord of the Rings", "Fantasy", 4, ["3:00pm", "5:00pm", "7:00pm", "11:59pm"]);
+let THEMATRIX = new Movie("The Matrix", "Science Fiction", 5, ["1:00pm", "3:45pm", "6:10pm", "9:05pm"]);
 
 let nextShowing = LORDOFTHERINGS.getNextShowing();
 console.log('Lord of the Rings: ' + nextShowing);
