@@ -22,6 +22,26 @@ let lordOfTheRings = {
   },
 };
 
+let theMatrix = {
+  title: "The Matrix",
+  genre: "Science Fiction",
+  rating: 5,
+  showtimes: ["1:00pm", "3:45pm", "6:10pm", "9:05pm"],
+  getNextShowing: function() {
+    let now = new Date().getTime();
+
+    for (let i = 0; i < this.showtimes.length; i++) {
+      let showtime = getTimeFromString(this.showtimes[i]);
+      console.log('showtime: ', showtime);
+      console.log('now: ', now);
+      if ((showtime - now) > 0) {
+        return `Next showing of ${this.title} is at ${this.showtimes[i]}.`;
+      }
+      return null;
+    }
+  },
+};
+
 function getTimeFromString(timeString) {
   let theTime = new Date();
   let time = timeString.match(/(\d+)(?::(\d\d))?\s*(p?)/);
@@ -31,4 +51,6 @@ function getTimeFromString(timeString) {
 }
 
 let nextShowing = lordOfTheRings.getNextShowing();
-console.log(nextShowing);
+console.log('Lord of the Rings: ' + nextShowing);
+nextShowing = theMatrix.getNextShowing();
+console.log('The Matrix: ' + nextShowing);
