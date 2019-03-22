@@ -2,6 +2,26 @@
 
 console.info("Chapter 4: Webville Cinema");
 
+function Movie(title, genre, rating, showtimes) {
+  this.title = title;
+  this.genre = genre;
+  this.rating = rating;
+  this.showtimes = showtimes;
+  this.getNextShowing = function() {
+    let now = new Date().getTime();
+
+    for (let i = 0; i < this.showtimes.length; i++) {
+      let showtime = getTimeFromString(this.showtimes[i]);
+      console.log('showtime: ', showtime);
+      console.log('now: ', now);
+      if ((showtime - now) > 0) {
+        return `Next showing of ${this.title} is at ${this.showtimes[i]}.`;
+      }
+      return null;
+    }
+  };
+}
+
 let lordOfTheRings = {
   title: "Lord of the Rings",
   genre: "Fantasy",
