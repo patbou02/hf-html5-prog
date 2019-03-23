@@ -5,11 +5,7 @@ console.info("Chapter 5: My Location");
 window.onload = getMyLocation;
 
 function getMyLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(displayLocation, displayError);
-  } else {
-    console.log('No geolocation support.');
-  }
+  navigator.geolocation ? navigator.geolocation.getCurrentPosition(displayLocation, displayError) : console.log('No geolocation support.');
 }
 
 function displayLocation(position) {
