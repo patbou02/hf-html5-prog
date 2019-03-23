@@ -34,3 +34,18 @@ function displayError(error) {
   let div = document.getElementById('location');
   div.innerHTML = errorMessage;
 }
+
+function computeDistance(startCoords, destCoords) {
+  let startLatRads = degreesToRadians(startCoords.latitude);
+  let startLongRads = degreesToRadians(startCoords.longitude);
+  let destLatRads = degreesToRadians(destCoords.latitude);
+  let destLongRads = degreesToRadians(destCoords.longitude);
+  let Radius = 6371; // radius of the Earth in km
+  return Math.acos(Math.sin(startLatRads) * Math.sin(destLatRads) +
+    Math.cos(startLatRads) * Math.cos(destLatRads) *
+    Math.cos(startLongRads - destLongRads)) * Radius;
+}
+
+function degreesToRadians(degrees) {
+  return (degrees * Math.PI) / 180;
+}
