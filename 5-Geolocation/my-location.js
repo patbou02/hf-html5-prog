@@ -4,6 +4,11 @@ console.info("Chapter 5: My Location");
 
 window.onload = getMyLocation;
 
+const OURCOORDS = {
+  latitude: 47.624851,
+  longitude: -122.52099,
+};
+
 function getMyLocation() {
   navigator.geolocation ? navigator.geolocation.getCurrentPosition(displayLocation, displayError) : console.log('No geolocation support.');
 }
@@ -14,6 +19,10 @@ function displayLocation(position) {
 
   let div = document.getElementById('location');
   div.innerHTML = `You are at Latitude: ${latitude}, Longitude: ${longitude}.`;
+
+  let km = computeDistance(position.coords, OURCOORDS);
+  let distance = document.getElementById('distance');
+  distance.innerHTML = `You are ${km} km from the WickedlySmart HQ.`;
 }
 
 function displayError(error) {
