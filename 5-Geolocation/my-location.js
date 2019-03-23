@@ -8,6 +8,7 @@ const OURCOORDS = {
   latitude: 47.624851,
   longitude: -122.52099,
 };
+let map;
 
 function getMyLocation() {
   navigator.geolocation ? navigator.geolocation.getCurrentPosition(displayLocation, displayError) : console.log('No geolocation support.');
@@ -33,6 +34,8 @@ function displayLocation(position) {
       distance.innerHTML = `You are ${dist} miles from the WickedlySmart HQ.`;
       break;
   }
+
+  showMap(position.coords);
 }
 
 function displayError(error) {
@@ -72,4 +75,15 @@ function computeDistance(startCoords, destCoords, unit) {
 
 function degreesToRadians(degrees) {
   return (degrees * Math.PI) / 180;
+}
+
+function showMap(coords) {
+  let GOOGLELATANDLONG = new google.maps.LatLng(coords.latitude, coords.longitude);
+  let MAPOPTIONS = {
+    zoom: 10,
+    center: GOOGLELATANDLONG,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+  };
+  let mapDiv = document.getElementById('map');
+  map = new google.maps.Map(mapDiv, MAPOPTIONS);
 }
