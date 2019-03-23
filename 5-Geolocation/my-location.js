@@ -20,9 +20,19 @@ function displayLocation(position) {
   let div = document.getElementById('location');
   div.innerHTML = `You are at Latitude: ${latitude}, Longitude: ${longitude}.`;
 
-  let km = computeDistance(position.coords, OURCOORDS);
+  let unit = prompt("Please enter 'KM' or 'ML' if you want to view distance in Kilometers or Miles respectively.").toLowerCase();
+
+  let dist = computeDistance(position.coords, OURCOORDS, unit);
   let distance = document.getElementById('distance');
-  distance.innerHTML = `You are ${km} km from the WickedlySmart HQ.`;
+  switch(unit) {
+    case 'km':
+      distance.innerHTML = `You are ${dist} kilometers from the WickedlySmart HQ.`;
+      break;
+    case 'ml':
+      distance.innerHTML = `You are ${dist} miles from the WickedlySmart HQ.`;
+      break;
+  }
+
 }
 
 function displayError(error) {
@@ -40,12 +50,21 @@ function displayError(error) {
   div.innerHTML = errorMessage;
 }
 
-function computeDistance(startCoords, destCoords) {
+function computeDistance(startCoords, destCoords, unit) {
   let startLatRads = degreesToRadians(startCoords.latitude);
   let startLongRads = degreesToRadians(startCoords.longitude);
   let destLatRads = degreesToRadians(destCoords.latitude);
   let destLongRads = degreesToRadians(destCoords.longitude);
-  let Radius = 6371; // radius of the Earth in km
+
+  let Radius;
+  switch(unit) {
+    case 'km':
+      Radius = 6371; // radius of the Earth in km
+      break;
+    case 'ml':
+      Radius = 3958; // radius of the Earth in miles
+      break;
+  }
   return Math.acos(Math.sin(startLatRads) * Math.sin(destLatRads) +
     Math.cos(startLatRads) * Math.cos(destLatRads) *
     Math.cos(startLongRads - destLongRads)) * Radius;
