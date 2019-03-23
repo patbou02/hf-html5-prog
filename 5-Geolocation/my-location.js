@@ -21,6 +21,7 @@ function displayLocation(position) {
   div.innerHTML = `You are at Latitude: ${latitude}, Longitude: ${longitude}.`;
 
   let unit = prompt("Please enter 'KM' or 'ML' if you want to view distance in Kilometers or Miles respectively.").toLowerCase();
+  // TODO: provide fall back is value entered is not KM or ML
 
   let dist = computeDistance(position.coords, OURCOORDS, unit);
   let distance = document.getElementById('distance');
@@ -32,7 +33,6 @@ function displayLocation(position) {
       distance.innerHTML = `You are ${dist} miles from the WickedlySmart HQ.`;
       break;
   }
-
 }
 
 function displayError(error) {
