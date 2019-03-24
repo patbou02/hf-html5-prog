@@ -86,6 +86,9 @@ function showMap(coords) {
   };
   let mapDiv = document.getElementById('map');
   map = new google.maps.Map(mapDiv, MAPOPTIONS);
+  let title = 'Your Location';
+  let content = `You are here: ${coords.latitude}, ${coords.longitude}.`;
+  addMarker(map, GOOGLELATANDLONG, title, content);
 }
 
 function addMarker(map, latlong, title, content) {
