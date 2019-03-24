@@ -87,3 +87,13 @@ function showMap(coords) {
   let mapDiv = document.getElementById('map');
   map = new google.maps.Map(mapDiv, MAPOPTIONS);
 }
+
+function addMarker(map, latlong, title, content) {
+  let MARKEROPTIONS = {
+    position: latlong,
+    map: map,
+    title: title,
+    clickable: true,
+  };
+  let MARKER = new google.maps.Marker(MARKEROPTIONS);
+}
