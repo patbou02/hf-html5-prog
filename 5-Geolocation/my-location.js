@@ -96,4 +96,13 @@ function addMarker(map, latlong, title, content) {
     clickable: true,
   };
   let MARKER = new google.maps.Marker(MARKEROPTIONS);
+  let INFOWINDOWOPTIONS = {
+    content: content,
+    position: latlong,
+  };
+  let INFOWINDOW = new google.maps.InfoWindow(INFOWINDOWOPTIONS);
+
+  google.maps.event.addListener(MARKER, 'click', function() {
+    INFOWINDOW.open(map);
+  });
 }
