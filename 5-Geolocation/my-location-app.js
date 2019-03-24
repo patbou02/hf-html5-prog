@@ -11,7 +11,14 @@ const OURCOORDS = {
 let map;
 
 function getMyLocation() {
-  navigator.geolocation ? navigator.geolocation.getCurrentPosition(displayLocation, displayError) : console.log('No geolocation support.');
+  if (navigator.geolocation) {
+    let watchButton = document.getElementById('watch');
+    let clearWatchButton = document.getElementById('clearWatch');
+    watchButton.onclick = watchLocation;
+    clearWatchButton.onclick = clearWatch;
+  } else {
+    console.log('No geolocation support.');
+  }
 }
 
 function displayLocation(position) {
