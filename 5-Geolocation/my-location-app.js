@@ -24,10 +24,7 @@ function getMyLocation() {
 let watchId = null;
 
 function watchLocation() {
-  watchId = navigator.geolocation.watchPosition(
-    displayLocation,
-    displayError,
-   { timeout:5000 } );
+  watchId = navigator.geolocation.watchPosition(displayLocation, displayError);
 }
 
 function clearWatch() {
@@ -47,6 +44,8 @@ function displayLocation(position) {
 
   if (map === null) {
     showMap(position.coords);
+  } else {
+    scrollMapToPosition(position.coords);
   }
 }
 
@@ -113,4 +112,14 @@ function addMarker(map, latlong, title, content) {
   google.maps.event.addListener(MARKER, 'click', function() {
     INFOWINDOW.open(map);
   });
+}
+
+function scrollMapToPosition(coords) {
+  let latitude = coords.latitude;
+  let longitude = coords.longitude;
+  let latlong = new google.maps.LatLng(latitude, longitude);
+
+  map.panTo(latlong);
+
+  addMarker(map, latlong, 'Your new location', `You moved to: ${latitude}, ${longitude}.`);
 }
