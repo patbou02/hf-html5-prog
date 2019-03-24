@@ -27,6 +27,11 @@ function watchLocation() {
   watchId = navigator.geolocation.watchPosition(displayLocation, displayError);
 }
 
+function clearWatch() {
+  navigator.geolocation.clearWatch(watchId);
+  watchId = null;
+}
+
 function displayLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -37,7 +42,9 @@ function displayLocation(position) {
   let dist = computeDistance(position.coords, OURCOORDS);
   let distance = document.getElementById('distance');
 
-  showMap(position.coords);
+  if (map === null) {
+    showMap(position.coords);
+  }
 }
 
 function displayError(error) {
