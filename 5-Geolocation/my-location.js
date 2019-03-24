@@ -19,7 +19,7 @@ function displayLocation(position) {
   let longitude = position.coords.longitude;
 
   let div = document.getElementById('location');
-  div.innerHTML = `You are at Latitude: ${latitude}, Longitude: ${longitude}.`;
+  div.innerHTML = `You are at Latitude: ${latitude}, Longitude: ${longitude} (with ${position.coords.accuracy} meters accuracy).`;
 
   let unit = prompt("Please enter 'KM' or 'ML' if you want to view distance in Kilometers or Miles respectively.").toLowerCase();
   // TODO: provide fall back is value entered is not KM or ML
