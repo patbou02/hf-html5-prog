@@ -21,6 +21,12 @@ function getMyLocation() {
   }
 }
 
+let watchId = null;
+
+function watchLocation() {
+  watchId = navigator.geolocation.watchPosition(displayLocation, displayError);
+}
+
 function displayLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
