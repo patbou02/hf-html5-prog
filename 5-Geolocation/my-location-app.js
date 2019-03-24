@@ -24,7 +24,10 @@ function getMyLocation() {
 let watchId = null;
 
 function watchLocation() {
-  watchId = navigator.geolocation.watchPosition(displayLocation, displayError);
+  watchId = navigator.geolocation.watchPosition(
+    displayLocation,
+    displayError,
+   { timeout:5000 } );
 }
 
 function clearWatch() {
