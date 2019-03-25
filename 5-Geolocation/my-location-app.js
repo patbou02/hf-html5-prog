@@ -32,6 +32,8 @@ function clearWatch() {
   watchId = null;
 }
 
+let prevCoords = null;
+
 function displayLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -44,6 +46,13 @@ function displayLocation(position) {
 
   if (map === null) {
     showMap(position.coords);
+    prevCoords = position.coords;
+  } else {
+    let meters = computeDistance(position.coords, prevCoords) * 1000;
+    if (meters > 20) {
+      scrollMapToPosition(position.coords);
+      prevCoords = position.coords;
+    }
   }
 }
 
@@ -110,4 +119,14 @@ function addMarker(map, latlong, title, content) {
   google.maps.event.addListener(MARKER, 'click', function() {
     INFOWINDOW.open(map);
   });
+}
+
+function scrollMapToPosition(coords) {
+  let latitude = coords.latitude;
+  let longitude = coords.longitude;
+  let latlong = new google.maps.LatLng(latitude, longitude);
+
+  map.panTo(latlong);
+
+  addMarker(map, latlong, 'Your new location', `You moved to: ${latitude}, ${longitude}.`);
 }
