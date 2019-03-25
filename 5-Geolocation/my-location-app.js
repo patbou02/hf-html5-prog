@@ -32,6 +32,8 @@ function clearWatch() {
   watchId = null;
 }
 
+let prevCoords = null;
+
 function displayLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -44,8 +46,13 @@ function displayLocation(position) {
 
   if (map === null) {
     showMap(position.coords);
+    prevCoords = position.coords;
   } else {
-    scrollMapToPosition(position.coords);
+    let meters = computeDistance(position.coords, prevCoords) * 1000;
+    if (meters > 20) {
+      scrollMapToPosition(position.coords);
+      prevCoords = position.coords;
+    }
   }
 }
 
