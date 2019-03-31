@@ -36,9 +36,9 @@ function updateSalesJSONP(sales) {
   let salesContainer = document.getElementById('sales');
   for (let i = 0; i < sales.length; i++) {
     let sale = sales[i];
-    let div = document.createElement("div");
-    div.setAttribute("class", "saleItem");
-    div.innerHTML = `${sale.name} sold ${sale.sales} gumballs`;
-    salesContainer.appendChild(div);
+    let li = document.createElement("li");
+    li.setAttribute("class", "saleItem");
+    li.innerHTML = `${sale.name} sold ${sale.sales} gumballs`;
+    salesContainer.appendChild(li);
   }
 }

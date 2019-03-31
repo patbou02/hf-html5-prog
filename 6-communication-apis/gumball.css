@@ -1,1 +1,18 @@
 body { font-family: Verdana, Helvetica, sans-serif; }
+
+#sales, .saleItem { display: block; }
+
+#sales {
+  margin: 0;
+  padding: 0;
+  background-color: lightgrey;
+  border: 1px solid black;
+}
+
+.saleItem {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+.saleItem:nth-child(2n) { background-color: white; }
+.saleItem:last-child { border-bottom: 0; }
+.saleItem:hover { background-color: grey; color: white; }
