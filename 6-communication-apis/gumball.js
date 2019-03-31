@@ -2,6 +2,7 @@
 
 console.info("Chapter 6: External APIs");
 
+let lastReportTime = 0;
 
 window.onload = function() {
   /* If using XMLHttpRequest object */
@@ -41,11 +42,17 @@ function updateSalesJSONP(sales) {
     li.innerHTML = `${sale.name} sold ${sale.sales} gumballs`;
     salesContainer.appendChild(li);
   }
+  if (sales.length > 0) {
+    lastReportTime = sales[sales.length - 1].time;
+  }
 }
 
 function handleRefresh() {
   console.log('refreshing...');
-  let url = "http://gumball.wickedlysmart.com/?callback=updateSalesJSONP" + "&random=" + (new Date()).getTime();
+  let url = "http://gumball.wickedlysmart.com/" +
+            "?callback=updateSalesJSONP" +
+            "&lastreporttime=" + lastReportTime +
+            "&random=" + (new Date()).getTime();
   let newScriptElement = document.createElement("script");
   newScriptElement.setAttribute("src", url);
   newScriptElement.setAttribute("id", "jsonp");
