@@ -14,3 +14,8 @@ window.onload = function() {
   };
   request.send(null);
 };
+
+function updateSales(responseText) {
+  let salesContainer = document.getElementById('sales');
+  salesContainer.innerText = responseText;
+}
