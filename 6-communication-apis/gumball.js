@@ -31,3 +31,14 @@ window.onload = function() {
     salesContainer.appendChild(div);
   }
 }*/
+
+function updateSalesJSONP(sales) {
+  let salesContainer = document.getElementById('sales');
+  for (let i = 0; i < sales.length; i++) {
+    let sale = sales[i];
+    let div = document.createElement("div");
+    div.setAttribute("class", "saleItem");
+    div.innerHTML = `${sale.name} sold ${sale.sales} gumballs`;
+    salesContainer.appendChild(div);
+  }
+}
