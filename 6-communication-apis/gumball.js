@@ -45,7 +45,7 @@ function updateSalesJSONP(sales) {
 
 function handleRefresh() {
   console.log('refreshing...');
-  let url = "http://gumball.wickedlysmart.com/?lastreporttime=12321449090?callback=updateSalesJSONP";
+  let url = "http://gumball.wickedlysmart.com/?callback=updateSalesJSONP" + "&random=" + (new Date()).getTime();
   let newScriptElement = document.createElement("script");
   newScriptElement.setAttribute("src", url);
   newScriptElement.setAttribute("id", "jsonp");
