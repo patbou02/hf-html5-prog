@@ -3,7 +3,7 @@
 console.info("Chapter 6: External APIs");
 
 window.onload = function() {
-  let url = 'http://hfhtml5:8888/chap6/sales.json';
+  let url = 'http://gumball.wickedlysmart.com/?lastreporttime=12321449090';
   let request = new XMLHttpRequest();
 
   request.open("GET", url);
