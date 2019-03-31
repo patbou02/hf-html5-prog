@@ -17,7 +17,7 @@ window.onload = function() {
   request.send(null);*/
 
   /* If using JSONP */
-
+  setInterval(handleRefresh, 3000);
 };
 
 /*function updateSalesXMLHttpRequest(responseText) {
@@ -40,5 +40,21 @@ function updateSalesJSONP(sales) {
     li.setAttribute("class", "saleItem");
     li.innerHTML = `${sale.name} sold ${sale.sales} gumballs`;
     salesContainer.appendChild(li);
+  }
+}
+
+function handleRefresh() {
+  console.log('refreshing...');
+  let url = "http://gumball.wickedlysmart.com/?lastreporttime=12321449090?callback=updateSalesJSONP";
+  let newScriptElement = document.createElement("script");
+  newScriptElement.setAttribute("src", url);
+  newScriptElement.setAttribute("id", "jsonp");
+
+  let oldScriptElement = document.getElementById("jsonp");
+  let head = document.getElementsByTagName("head")[0];
+  if (oldScriptElement === null) {
+    head.appendChild(newScriptElement);
+  } else {
+    head.replaceChild(newScriptElement, oldScriptElement);
   }
 }
