@@ -1,0 +1,25 @@
+body { font-family: Verdana, Helvetica, sans-serif; }
+
+#sales, .saleItem { display: block; }
+
+#sales {
+  margin: 0;
+  padding: 0;
+  background-color: lightgrey;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.75);
+  height: 400px;
+  overflow: scroll;
+  width: 400px;
+  margin: 25px auto;
+}
+
+.saleItem {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+.saleItem:nth-child(2n) { background-color: white; }
+.saleItem:first-child { border-radius: 5px 5px 0 0; }
+.saleItem:last-child { border-bottom: 0; border-radius: 0 0 5px 5px; }
+.saleItem:hover { background-color: grey; color: white; }
