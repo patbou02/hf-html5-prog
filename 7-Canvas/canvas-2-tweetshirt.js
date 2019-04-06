@@ -58,3 +58,21 @@ function fillBackgroundColor(canvas, context) {
   // draw a square that fills the entire canvas
   context.fillRect(0, 0, canvas.width, canvas.height);
 }
+
+function drawCircle(canvas, context) {
+  // set starting X, Y coordinates for circle center
+
+  // set radius R dimension of circle
+
+  // set start angle of circle
+
+  // set end angle of circle
+
+  // start path
+
+  // draw circle
+
+  // set circle fillStyle
+
+  // end path
+}
