@@ -61,18 +61,27 @@ function fillBackgroundColor(canvas, context) {
 
 function drawCircle(canvas, context) {
   // set starting X, Y coordinates for circle center
+  let x = Math.floor(Math.random() * canvas.width);
+  let y = Math.floor(Math.random() * canvas.height);
 
-  // set radius R dimension of circle
+  // set radius dimension of circle
+  let radius = Math.floor(Math.random() * 40);
 
   // set start angle of circle
+  let start = 0;
 
   // set end angle of circle
+  let end = 360;
 
   // start path
+  context.beginPath();
 
   // draw circle
+  context.arc(x, y, radius, start, degreesToRadians(end), true);
 
   // set circle fillStyle
+  context.fillStyle = "red";
 
   // end path
+  context.fill();
 }
