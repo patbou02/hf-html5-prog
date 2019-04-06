@@ -8,26 +8,6 @@
   <style>
     canvas { border: 1px solid black; }
   </style>
-  <script>
-    window.onload = function() {
-      let canvas = document.getElementById("lookwhatIdrew");
-      let context = canvas.getContext("2d");
-
-      context.fillRect(10, 10, 100, 100);
-    };
-
-    let selectObj = document.getElementById('backgroundColor');
-    let index = selectObj.selectedIndex;
-    let bgColor = selectObj[index].value;
-
-    let selectObj = document.getElementById("shape");
-    let index = selectObj.selectedIndex;
-    let shape = selectObj[index].value;
-
-    let selectObj = document.getElementById("foregroundcolor");
-    let index = selectObj.selectedIndex;
-    let fgColor = selectObj[index].value;
-  </script>
 </head>
 <body>
   <h1>Chapter 7 - Canvas (Look What I Drew)</h1>
@@ -61,6 +41,7 @@
     </p>
     <p><input type="button" id="previewButton" value="Preview"></p>
   </form>
+  <script src="canvas-1.js"></script>
   <script src="../shared/reload.js"></script>
 </body>
 </html>
