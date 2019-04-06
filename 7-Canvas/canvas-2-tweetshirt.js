@@ -77,11 +77,15 @@ function drawCircle(canvas, context) {
   context.beginPath();
 
   // draw circle
-  context.arc(x, y, radius, start, degreesToRadians(end), true);
+  context.arc(x, y, radius, degreesToRadians(start), degreesToRadians(end), true);
 
   // set circle fillStyle
   context.fillStyle = "red";
 
   // end path
   context.fill();
+}
+
+function degreesToRadians(degrees) {
+  return (degrees * Math.PI) / 180;
 }
