@@ -1,9 +1,9 @@
 "use strict";
 
-console.info("Chapter 7: Canvas API - Cookie");
+console.info("Chapter 7: Canvas API - Smiley");
 
 window.onload = function() {
-  let button = document.getElementById('previewCookie');
+  let button = document.getElementById('previewSmiley');
   button.onclick = previewHandler;
 };
 
