@@ -22,6 +22,10 @@ function previewHandler() {
     for (let squares = 0; squares < 20; squares++) {
       drawSquare(canvas, context);
     }
+  } else if (shape === 'circles') {
+    for (let circles = 0; circles < 20; circles++) {
+      drawCircle(canvas, context);
+    }
   }
 }
 
