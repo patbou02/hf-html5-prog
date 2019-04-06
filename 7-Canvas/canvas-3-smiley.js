@@ -11,12 +11,12 @@ function previewHandler() {
   let canvas = document.getElementById('canvas');
   let context = canvas.getContext('2d');
 
-  context.beginPath();
+  drawSmiley(context);
+}
 
-
-  context.beginPath();
-
+function drawSmiley(context) {
   // draw head
+  context.beginPath();
   context.arc(300, 300, 200, 0, degreesToRadians(360), true);
   context.fillStyle = "beige";
   context.fill();
