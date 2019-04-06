@@ -10,4 +10,16 @@ window.onload = function() {
 function previewHandler() {
   let canvas = document.getElementById('canvas');
   let context = canvas.getContext('2d');
+
+  context.beginPath();
+
+  // draw head
+
+  // draw left eye
+
+  // draw right eye
+
+  // draw nose
+
+  // draw mouth
 }
