@@ -21,3 +21,16 @@ function previewHandler() {
     }
   }
 }
+
+function drawSquare(canvas, context) {
+
+  // calculate a random width w for the square
+
+  // calculate a random x position for the square inside the canvas
+
+  // calculate a random y position for the square inside the canvas
+
+  // set the fillStyle to lightblue
+
+  // draw a square at position x, y with width w
+}
