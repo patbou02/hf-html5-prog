@@ -16,21 +16,13 @@ function previewHandler() {
 
 function drawSmiley(context) {
   // draw head
-  context.beginPath();
-  context.arc(300, 300, 200, 0, degreesToRadians(360), true);
-  context.fillStyle = "beige";
-  context.fill();
-  context.stroke();
+  drawCircle(context, 300, 300, 200, 0, 360, true, "beige");
 
   // draw left eye
-  context.beginPath();
-  context.arc(200, 250, 25, 0, degreesToRadians(360), true);
-  context.stroke();
+  drawCircle(context, 200, 250, 25, 0, 360, true, "white");
 
   // draw right eye
-  context.beginPath();
-  context.arc(400, 250, 25, 0, degreesToRadians(360), true);
-  context.stroke();
+  drawCircle(context, 400, 250, 25, 0, 360, true, "white");
 
   // draw nose
   context.beginPath();
@@ -39,11 +31,19 @@ function drawSmiley(context) {
   context.stroke();
 
   // draw mouth
-  context.beginPath();
-  context.arc(300, 350, 75, degreesToRadians(20), degreesToRadians(160), false);
-  context.stroke();
+  drawCircle(context,300, 350, 75, 20, 160, false, "beige");
 }
 
 function degreesToRadians(degrees) {
   return (degrees * Math.PI) / 180;
+}
+
+function drawCircle(context, x, y, r, start, end, direction, bgColor) {
+  context.beginPath();
+  context.arc(x, y, r, degreesToRadians(start), degreesToRadians(end), direction);
+  if (bgColor !== null) {
+    context.fillStyle = bgColor;
+    context.fill();
+  }
+  context.stroke();
 }
