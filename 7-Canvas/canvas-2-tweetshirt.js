@@ -41,8 +41,13 @@ function drawSquare(canvas, context) {
 
 function fillBackgroundColor(canvas, context) {
   // get color from selected option in dropdown list
+  let selectObj = document.getElementById('backgroundColor');
+  let index = selectObj.selectedIndex;
+  let bgColor = selectObj[index].value;
 
   // set fillStyle property to be equal to whatever color is selected
+  context.fillStyle = bgColor;
 
   // draw a square that fills the entire canvas
+  context.fillRect(0, 0, canvas.width, canvas.height);
 }
