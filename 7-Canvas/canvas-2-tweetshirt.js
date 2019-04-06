@@ -38,3 +38,11 @@ function drawSquare(canvas, context) {
   // draw a square at position x, y with width w
   context.fillRect(x, y, w, w);
 }
+
+function fillBackgroundColor(canvas, context) {
+  // get color from selected option in dropdown list
+
+  // set fillStyle property to be equal to whatever color is selected
+
+  // draw a square that fills the entire canvas
+}
