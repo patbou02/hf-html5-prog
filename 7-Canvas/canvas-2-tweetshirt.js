@@ -14,4 +14,10 @@ function previewHandler() {
   let selectObj = document.getElementById('shape');
   let index = selectObj.selectedIndex;
   let shape = selectObj[index].value;
+
+  if (shape === 'squares') {
+    for (let squares = 0; squares < 20; squares++) {
+      drawSquare(canvas, context);
+    }
+  }
 }
