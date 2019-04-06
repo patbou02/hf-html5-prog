@@ -11,6 +11,9 @@ function previewHandler() {
   let canvas = document.getElementById('tshirtCanvas');
   let context = canvas.getContext('2d');
 
+  // start with a blank canvas
+  fillBackgroundColor(canvas, context);
+
   let selectObj = document.getElementById('shape');
   let index = selectObj.selectedIndex;
   let shape = selectObj[index].value;
