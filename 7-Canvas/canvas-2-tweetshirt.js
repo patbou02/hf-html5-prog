@@ -89,3 +89,15 @@ function drawCircle(canvas, context) {
 function degreesToRadians(degrees) {
   return (degrees * Math.PI) / 180;
 }
+
+function updateTweets(tweets) {
+  let tweetsSelection = document.getElementById('tweets');
+
+  for (let i = 0; i < tweets.length; i++) {
+    let tweet = tweets[i];
+    let option = document.createElement('option');
+    option.text = tweet.text;
+    option.value = tweet.text.replace("\"", "'");
+  }
+  tweetsSelection.selectedIndex = 0;
+}
