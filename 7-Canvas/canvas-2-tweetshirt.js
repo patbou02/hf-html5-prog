@@ -98,6 +98,8 @@ function updateTweets(tweets) {
     let option = document.createElement('option');
     option.text = tweet.text;
     option.value = tweet.text.replace("\"", "'");
+
+    tweetsSelection.options.add(option);
   }
   tweetsSelection.selectedIndex = 0;
 }
