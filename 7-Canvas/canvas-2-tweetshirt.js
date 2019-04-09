@@ -27,6 +27,7 @@ function previewHandler() {
       drawCircle(canvas, context);
     }
   }
+  drawText(canvas, context);
 }
 
 function drawSquare(canvas, context) {
@@ -102,4 +103,24 @@ function updateTweets(tweets) {
     tweetsSelection.options.add(option);
   }
   tweetsSelection.selectedIndex = 0;
+}
+
+function drawText(canvas, context) {
+  let selectObj = document.getElementById('foregroundColor');
+  let index = selectObj.selectedIndex;
+  let fgColor = selectObj[index].value;
+
+  // Draw the top text
+  context.fillStyle = fgColor;
+  context.font = "bold 1em sans-serif";
+  context.textAlign = "left";
+  context.fillText("I saw this tweet", 20, 40);
+
+  // Get the selected tweet from the tweets menu
+  // Draw the tweet
+
+  // Draw the bottom text
+  context.font = "bold 1em sans-serif";
+  context.textAlign = "right";
+  context.fillText("and all I got was this lousy t-shirt!", canvas.width - 20, canvas.height - 40);
 }
