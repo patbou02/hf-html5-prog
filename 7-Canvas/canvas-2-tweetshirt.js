@@ -27,6 +27,8 @@ function previewHandler() {
       drawCircle(canvas, context);
     }
   }
+
+  // add text to drawing
   drawText(canvas, context);
 }
 
