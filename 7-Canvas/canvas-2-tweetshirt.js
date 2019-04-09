@@ -119,9 +119,15 @@ function drawText(canvas, context) {
   context.fillText("I saw this tweet", 20, 40);
 
   // Get the selected tweet from the tweets menu
+  let tweetSelect = document.getElementById('tweets');
+  index = tweetSelect.selectedIndex;
+  let tweet = tweetSelect[index].value;
   // Draw the tweet
+  context.font = "italic 1.2em serif";
+  context.fillText(tweet, 30, 100);
 
   // Draw the bottom text
+  context.fillStyle = fgColor;
   context.font = "bold 1em sans-serif";
   context.textAlign = "right";
   context.fillText("and all I got was this lousy t-shirt!", canvas.width - 20, canvas.height - 40);
