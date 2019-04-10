@@ -30,6 +30,9 @@ function previewHandler() {
 
   // add text to drawing
   drawText(canvas, context);
+
+  // add twitter bird image
+  drawBird(canvas, context);
 }
 
 function drawSquare(canvas, context) {
@@ -131,4 +134,13 @@ function drawText(canvas, context) {
   context.font = "bold 1em sans-serif";
   context.textAlign = "right";
   context.fillText("and all I got was this lousy t-shirt!", canvas.width - 20, canvas.height - 40);
+}
+
+function drawBird(canvas, context) {
+  let twitterBird = new Image();
+  twitterBird.src = "twitterBird.png";
+
+  twitterBird.onload = function() {
+    context.drawImage(twitterBird, 20, 120, 70, 70);
+  }
 }
