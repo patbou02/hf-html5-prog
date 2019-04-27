@@ -3,9 +3,9 @@
 console.info("Chapter 8: Video API - Webville TV");
 
 /* Set Global Variables */
-let position = 0; // keep track of which video is playing
-let playlist;     // video playlist array will be stored here
-let video;        // reference to video element
+let position = 0; // Keep track of which video is playing.
+let playlist;     // Video playlist array will be stored here.
+let video;        // Reference to video element.
 
 window.onload = function() {
   console.log("page has loaded");
@@ -23,8 +23,23 @@ window.onload = function() {
   // Set video event listener.
   video.addEventListener("ended", nextVideo, false);
 
-  // set video source, load video and play it.
+  // Set video source, load video and play it.
   video.src = playlist[position];
   video.load();
   video.play();
 };
+
+function nextVideo() {
+  // Increase position of video to be played.
+  position++;
+
+  // Set position to 0 if we reach the end of the playlist.
+  if (position >= playlist.length) {
+    position = 0;
+  }
+
+  // Set src, load and play video.
+  video.src = playlist[position];
+  video.load();
+  video.play();
+}
