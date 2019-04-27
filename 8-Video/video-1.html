@@ -5,12 +5,21 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Chapter 8 - Video (Webville TV)</title>
-  <style>
-    canvas { border: 1px solid black; }
-  </style>
+  <link rel="stylesheet" href="video-1.css" />
 </head>
 <body>
   <h1>Chapter 8 - Video (Webville TV)</h1>
+  <div id="tv">
+    <div id="tvConsole">
+      <div id="highlight">
+        <img src="images/highlight.png" alt="highlight for tv">
+      </div>
+      <div id="videoDiv">
+        <video controls autoplay src="video/preroll.mp4" width="480" height="360" poster="images/prerollposter.jpg" id="video">
+        </video>
+      </div>
+    </div>
+  </div>
   <script src="video-1.js"></script>
   <script src="../shared/reload.js"></script>
 </body>
