@@ -12,9 +12,9 @@ window.onload = function() {
 
   // Setup Playlist
   playlist = [
-    "video/preroll.mp4",
-    "video/areyoupopular.mp4",
-    "video/destinationearth.mp4",
+    "video/preroll",
+    "video/areyoupopular",
+    "video/destinationearth",
   ];
 
   // Grab video element.
@@ -24,9 +24,10 @@ window.onload = function() {
   video.addEventListener("ended", nextVideo, false);
 
   // Set video source, load video and play it.
-  video.src = playlist[position];
+  video.src = playlist[position] + getFormatExtension();
   video.load();
   video.play();
+  console.info(`Loaded and playing video: ${video.src}`);
 };
 
 function nextVideo() {
@@ -39,10 +40,10 @@ function nextVideo() {
   }
 
   // Set src, load and play video.
-  video.src = playlist[position];
+  video.src = playlist[position] + getFormatExtension();
   video.load();
-  console.info(`Loading video: ${playlist[position]}`);
   video.play();
+  console.info(`Loaded and playing video: ${video.src}`);
 }
 
 function getFormatExtension() {
