@@ -17,10 +17,13 @@
       <div id="videoDiv">
         <video controls
                autoplay
-               src="video/preroll.mp4"
                width="480" height="360"
                poster="images/prerollposter.jpg"
                id="video">
+          <source src="video/preroll.mp4">
+          <source src="video/preroll.webm">
+          <source src="video/preroll.ogv">
+          <p>Sorry, your browser doesn't support the video element</p>
         </video>
       </div>
     </div>
