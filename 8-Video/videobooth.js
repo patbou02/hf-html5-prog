@@ -2,7 +2,16 @@
 
 console.info("Chapter 8: Video API - Video Booth");
 
+let videos = {
+  video1: "video/demovideo1",
+  video2: "video/demovideo2",
+};
+
 window.onload = function() {
+  let video = document.getElementById("video");
+  video.src = videos.video1 + getFormatExtension();
+  video.load();
+
   // Set onClick handler for effect links.
   let effectLinks = document.querySelectorAll("a.effect");
   for (let i = 0; i < effectLinks.length; i++) {
@@ -95,4 +104,16 @@ function isButtonPushed(id) {
   let theClass = anchor.getAttribute("class");
 
   return (theClass.indexOf("selected") >= 0);
+}
+
+function getFormatExtension() {
+  let video = document.getElementById("video");
+  
+  if (video.canPlayType("video/mp4") != "") {
+    return ".mp4";
+  } else if (video.canPlayType("video/webm") != "") {
+    return ".webm";
+  } else if (video.canPlayType("video/ogg") != "") {
+    return ".ogg";
+  }
 }
