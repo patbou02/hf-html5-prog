@@ -7,6 +7,8 @@ let videos = {
   video2: "video/demovideo2",
 };
 
+let effectFunction = null;
+
 window.onload = function() {
   let video = document.getElementById("video");
   video.src = videos.video1 + getFormatExtension();
@@ -43,12 +45,16 @@ function setEffect(e) {
 
   if (id === "normal") {
     pushUnpushButtons("normal", ["western", "noir", "scifi"]);
+    effectFunction = null;
   } else if (id === "western") {
     pushUnpushButtons("western", ["normal", "noir", "scifi"]);
+    effectFunction = western;
   } else if (id === "noir") {
     pushUnpushButtons("noir", ["normal", "western", "scifi"]);
+    effectFunction = noir;
   } else if (id === "scifi") {
     pushUnpushButtons("scifi", ["normal", "western", "noir"]);
+    effectFunction = scifi;
   }
 }
 
