@@ -32,7 +32,10 @@ window.onload = function() {
 
   // Helper function to visually depress 'video1' and 'normal' buttons.
   pushUnpushButtons("video1", []);
-  pushUnpushButtons("normal", [])
+  pushUnpushButtons("normal", []);
+
+  // Set on ended handler for when video ends playing;
+  video.addEventListener("ended", endedHandler, false);
 };
 
 function setEffect(e) {
@@ -51,27 +54,47 @@ function setEffect(e) {
 
 function handleControl(e) {
   let id = e.target.getAttribute("id");
+  let video = document.getElementById("video");
+
   if (id === "play") {
     pushUnpushButtons("play", ["pause"]);
+    if (video.ended) {
+      video.load();
+    }
+    video.play();
   } else if (id === "pause") {
     pushUnpushButtons("pause", ["play"]);
+    video.pause();
   } else if (id === "loop") {
     (isButtonPushed("loop")) ?
       pushUnpushButtons("", ["loop"]) : pushUnpushButtons("loop", []);
+    video.loop = !video.loop;
   } else if (id === "mute") {
     (isButtonPushed("mute")) ?
       pushUnpushButtons("", ["mute"]) : pushUnpushButtons("mute", []);
+    video.muted = !video.muted;
   }
 }
 
 function setVideo(e) {
   let id = e.target.getAttribute("id");
+  let video = document.getElementById("video");
 
   if (id === "video1") {
     pushUnpushButtons("video1", ["video2"]);
   } else if (id === "video2") {
     pushUnpushButtons("video2", ["video1"]);
   }
+
+  video.src = videos[id] + getFormatExtension();
+  video.load();
+  video.play();
+
+  pushUnpushButtons("play", ["pause"]);
+}
+
+function endedHandler() {
+  pushUnpushButtons("", ["play"]);
 }
 
 // Helper Functions
