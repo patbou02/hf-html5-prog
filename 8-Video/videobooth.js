@@ -179,3 +179,14 @@ function processFrame() {
 
   setTimeout(processFrame, 0);
 }
+
+/* Effect - Noir */
+function noir(pos, r, g, b, data) {
+  let brightness = ((3*r) + (4*g) + b) >>> 3;
+  if (brightness < 0) {
+    brightness = 0;
+  }
+  data[(pos * 4) + 0] = brightness;
+  data[(pos * 4) + 1] = brightness;
+  data[(pos * 4) + 2] = brightness;
+}
