@@ -163,4 +163,17 @@ function processFrame() {
 
   buffer.drawImage(video, 0, 0, bufferCanvas.width, bufferCanvas.height);
   let frame = buffer.getImageData(0, 0, bufferCanvas.width, bufferCanvas.height);
+
+  let length = frame.data.length / 4;
+
+  for (let i = 0; i < length; i++) {
+    let r = frame.data[i * 4 + 0];
+    let g = frame.data[i * 4 + 1];
+    let b = frame.data[i * 4 + 2];
+
+    if (effectFunction) {
+      effectFunction(i, r, g, b, frame.data);
+    }
+    display.putImageData(frame, 0, 0);
+  }
 }
