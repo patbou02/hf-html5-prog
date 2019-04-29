@@ -38,6 +38,8 @@ window.onload = function() {
 
   // Set on ended handler for when video ends playing;
   video.addEventListener("ended", endedHandler, false);
+
+  video.addEventListener("play", processFrame, false);
 };
 
 function setEffect(e) {
@@ -145,4 +147,17 @@ function getFormatExtension() {
   } else if (video.canPlayType("video/ogg") != "") {
     return ".ogg";
   }
+}
+
+function processFrame() {
+  let video = document.getElementById("video");
+
+  if (video.paused || video.ended) {
+    return;
+  }
+
+  let bufferCanvas = document.getElementById("buffer");
+  let displayCanvas = document.getElementById("display");
+  let buffer = bufferCanvas.getContext("2d");
+  let display = displayCanvas.getContext("2d");
 }
