@@ -174,8 +174,8 @@ function processFrame() {
     if (effectFunction) {
       effectFunction(i, r, g, b, frame.data);
     }
-    display.putImageData(frame, 0, 0);
   }
+  display.putImageData(frame, 0, 0);
 
   setTimeout(processFrame, 0);
 }
