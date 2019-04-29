@@ -160,4 +160,7 @@ function processFrame() {
   let displayCanvas = document.getElementById("display");
   let buffer = bufferCanvas.getContext("2d");
   let display = displayCanvas.getContext("2d");
+
+  buffer.drawImage(video, 0, 0, bufferCanvas.width, bufferCanvas.height);
+  let frame = buffer.getImageData(0, 0, bufferCanvas.width, bufferCanvas.height);
 }
