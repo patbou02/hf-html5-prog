@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chapter 8 - Video (Video Booth)</title>
+  <link rel="stylesheet" href="videobooth.css" />
+</head>
+<body>
+  <h1>Chapter 8 - Video (Video Booth)</h1>
+  <div id="booth">
+    <div id="console">
+      <div id="videoDiv">
+        <video id="video" width="720" height="480"></video>
+        <canvas id="buffer" width="720" height="480"></canvas>
+        <canvas id="display" width="720" height="480"></canvas>
+      </div>
+      <div id="dashboard">
+        <div id="effects">
+          <a class="effect" id="normal"></a>
+          <a class="effect" id="western"></a>
+          <a class="effect" id="noir"></a>
+          <a class="effect" id="scifi"></a>
+        </div>
+        <div id="controls">
+          <a class="control" id="play"></a>
+          <a class="control" id="pause"></a>
+          <a class="control" id="loop"></a>
+          <a class="control" id="mute"></a>
+        </div>
+        <div id="videoSelection">
+          <a class="videoSelection" id="video1"></a>
+          <a class="videoSelection" id="video2"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="videobooth.js"></script>
+  <script src="../shared/reload.js"></script>
+</body>
+</html>
