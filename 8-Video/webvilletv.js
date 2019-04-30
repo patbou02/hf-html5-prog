@@ -28,6 +28,9 @@ window.onload = function() {
   video.load();
   video.play();
   console.info(`Loaded and playing video: ${video.src}`);
+
+  // error events
+  video.addEventListener("error", errorHandler, false);
 };
 
 function nextVideo() {
@@ -53,5 +56,13 @@ function getFormatExtension() {
     return ".webm";
   } else if (video.canPlayType("video/ogg") != "") {
     return ".ogg";
+  }
+}
+
+function errorHandler() {
+  let video = document.getElementById("video");
+  if (video.error) {
+    video.poster = "images/technicaldifficulties.jpg";
+    alert(video.error.code);
   }
 }
