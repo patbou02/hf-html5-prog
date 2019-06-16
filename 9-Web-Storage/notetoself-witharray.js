@@ -12,18 +12,19 @@ function init() {
 
   for (let i = 0; i < stickiesArray.length; i++) {
     let key = stickiesArray[i];
-    let value = localStorage[key];
+    let value = JSON.parse(localStorage[key]);
     addStickyToDOM(key, value);
   }
 }
 
-function addStickyToDOM(key, value) {
+function addStickyToDOM(key, stickyObj) {
   let stickies = document.getElementById('stickies');
   let sticky = document.createElement('li');
   sticky.setAttribute('id', key);
+  sticky.style.backgroundColor = stickyObj.color;
   let span = document.createElement('span');
   span.setAttribute('class', 'sticky');
-  span.innerHTML = value;
+  span.innerHTML = stickyObj.value;
   sticky.appendChild(span);
   stickies.appendChild(sticky);
   sticky.onclick = deleteSticky;
@@ -37,13 +38,20 @@ function removeStickyFromDOM(key) {
 function createSticky() {
   let stickiesArray = getStickiesArray();
   let currentDate = new Date();
+  let colorSelectObj = document.getElementById('note_color');
+  let index = colorSelectObj.selectedIndex;
+  let color = colorSelectObj[index].value;
   let key = "sticky_" + currentDate.getTime();
   let value = document.getElementById('note_text').value;
-  localStorage.setItem(key, value);
+  let stickyObj = {
+    "value": value,
+    "color": color
+  };
+  localStorage.setItem(key, JSON.stringify(stickyObj));
   stickiesArray.push(key);
   localStorage.setItem('stickiesArray', JSON.stringify(stickiesArray));
 
-  addStickyToDOM(key, value);
+  addStickyToDOM(key, stickyObj);
 }
 
 function getStickiesArray() {
@@ -61,7 +69,7 @@ function getStickiesArray() {
 
 function deleteSticky(e) {
   let key = e.target.id;
-  if (e.target.tagName.toLowerCase() === "span") {
+  if (e.target.tagName.toLowerCase() === 'span') {
     key = e.target.parentNode.id;
   }
   localStorage.removeItem(key);
@@ -72,7 +80,7 @@ function deleteSticky(e) {
         stickiesArray.splice(i, 1);
       }
     }
-    localStorage.setItem("stickiesArray", JSON.stringify(stickiesArray));
+    localStorage.setItem('stickiesArray', JSON.stringify(stickiesArray));
     removeStickyFromDOM(key);
   }
 }
